@@ -4,12 +4,15 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from google import genai
-import faiss
 import numpy as np
 import os
 import time
 from typing import List
 from dotenv import load_dotenv
+try:
+    import faiss
+except ImportError:
+    faiss = None
 
 # Load environment variables
 load_dotenv()
